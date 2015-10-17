@@ -14,8 +14,6 @@ class MemeTableViewCell: UITableViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     
     
-    
-    
 }
 
 

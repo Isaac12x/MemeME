@@ -16,6 +16,4 @@ struct Meme {
     var bottomTextField: String!
     var image: UIImage!
     var memedImage: UIImage!
-    
-    
-}
+t}

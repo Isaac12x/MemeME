@@ -6,4 +6,10 @@
 //  Copyright © 2015 Isaac Albets Ramonet. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var memeImageView: UIImageView!
+
+}

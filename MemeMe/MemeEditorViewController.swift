@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
     
     var meme: Meme?
     
@@ -103,7 +103,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
         NSForegroundColorAttributeName: UIColor.whiteColor(),
-        NSFontAttributeName: UIFont(name: "Helvetica Neue Condensed Bold", size: 40)!,
+        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: -3.0,
     ]
     
@@ -170,7 +170,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme( topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, image: imageViewController.image!, memedImage: generateMemedImage())
         
         // Add it to the memes array on the Application Delegate
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Create a UIImage that combines the Image View and the Labels
