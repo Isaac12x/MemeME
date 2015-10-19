@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
     
     var meme: Meme?
     
@@ -90,10 +90,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         
-        // TODO
-        
-        // CREATE A RULE FOR EACH TEXTLABEL TO KEEP THEM ON THE TOP AND BOTTOM
-        // OF THE IMAGE BY CALCULATING ITS HEIGHT
     }
     
     
@@ -170,7 +166,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme( topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, image: imageViewController.image!, memedImage: generateMemedImage())
         
         // Add it to the memes array on the Application Delegate
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Create a UIImage that combines the Image View and the Labels
@@ -200,20 +200,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems:[image], applicationActivities:nil)
         
-        presentViewController(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = {
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            if ok == true{
+            if ok{
                 self.save()
-            } else {
+            }else{
                 controller.dismissViewControllerAnimated(true, completion: nil )
             }
+            }
+        presentViewController(controller, animated: true, completion: nil)
         }
-        
-        // TODO
-        // 1. make a sharing via twitter
-        // 2. add sharing via facebook
-    }
+            
     
     
     // Cancel your actions
