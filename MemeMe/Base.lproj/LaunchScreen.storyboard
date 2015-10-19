@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,13 +20,19 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-Yh-oyf">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="zJo-IK-adm">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="-2" y="14" width="405" height="586"/>
-                                </variation>
+                                <animations/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MemeMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySZ-Pm-R1H">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -34,8 +41,12 @@
                             <constraint firstItem="zJo-IK-adm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8XW-D9-Pug"/>
                             <constraint firstItem="zJo-IK-adm" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="8eV-Kr-oci"/>
                             <constraint firstItem="zJo-IK-adm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HRg-MG-DSW"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ySZ-Pm-R1H" secondAttribute="bottom" constant="412" id="MTL-zt-K03"/>
                             <constraint firstItem="OBN-Yh-oyf" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="VQC-48-IVd"/>
                             <constraint firstItem="zJo-IK-adm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-22" id="YNA-ea-p3y"/>
+                            <constraint firstItem="ySZ-Pm-R1H" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="74" id="YxI-rC-8cD"/>
+                            <constraint firstItem="ySZ-Pm-R1H" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="89" id="YyG-NU-kay"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ySZ-Pm-R1H" secondAttribute="trailing" constant="88" id="oQY-fz-eEd"/>
                             <constraint firstItem="zJo-IK-adm" firstAttribute="leading" secondItem="OBN-Yh-oyf" secondAttribute="leading" id="r6M-Ca-87g"/>
                             <constraint firstItem="zJo-IK-adm" firstAttribute="bottom" secondItem="OBN-Yh-oyf" secondAttribute="bottom" id="raQ-bT-grW"/>
                         </constraints>
@@ -43,8 +54,14 @@
                             <mask key="subviews">
                                 <exclude reference="OBN-Yh-oyf"/>
                                 <exclude reference="zJo-IK-adm"/>
+                                <exclude reference="ySZ-Pm-R1H"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="MTL-zt-K03"/>
+                                <exclude reference="YxI-rC-8cD"/>
+                                <exclude reference="YyG-NU-kay"/>
+                                <exclude reference="oQY-fz-eEd"/>
+                                <exclude reference="VQC-48-IVd"/>
                                 <exclude reference="55o-GC-fr8"/>
                                 <exclude reference="8XW-D9-Pug"/>
                                 <exclude reference="8eV-Kr-oci"/>
@@ -52,15 +69,20 @@
                                 <exclude reference="YNA-ea-p3y"/>
                                 <exclude reference="r6M-Ca-87g"/>
                                 <exclude reference="raQ-bT-grW"/>
-                                <exclude reference="VQC-48-IVd"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="OBN-Yh-oyf"/>
                                 <include reference="zJo-IK-adm"/>
+                                <include reference="ySZ-Pm-R1H"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="MTL-zt-K03"/>
+                                <include reference="YxI-rC-8cD"/>
+                                <include reference="YyG-NU-kay"/>
+                                <include reference="oQY-fz-eEd"/>
+                                <include reference="VQC-48-IVd"/>
                                 <include reference="55o-GC-fr8"/>
                                 <include reference="8XW-D9-Pug"/>
                                 <include reference="8eV-Kr-oci"/>
@@ -68,7 +90,6 @@
                                 <include reference="YNA-ea-p3y"/>
                                 <include reference="r6M-Ca-87g"/>
                                 <include reference="raQ-bT-grW"/>
-                                <include reference="VQC-48-IVd"/>
                             </mask>
                         </variation>
                     </view>

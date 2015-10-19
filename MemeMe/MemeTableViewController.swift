@@ -16,25 +16,23 @@ class MemeTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        tableView!.reloadData()
     }
     
-    @IBAction func createNewMeme(sender: AnyObject) {
-        let newMemeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.presentViewController(newMemeVC, animated: true, completion: nil)
-    }
     
-    func tableView(tableView: UITableView, numberOfRowInSection section: Int) -> Int{
+    // REQUIRED METHODS FOR TABLEVIEW IMPLEMENTATION
+    
+    // Table cell's count
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return memes.count
     }
     
+    // Populate tableView cells with data form the data storage
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let meme = memes[indexPath.row]
 
@@ -45,13 +43,10 @@ class MemeTableViewController: UITableViewController{
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    // Instructions to segue when pressing down into any cell
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let editMemeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        
-        // the error must be here...
-        //editMemeVC.memeDetailView.image = memes[indexPath.row].memedImage
-        
-        editMemeVC.meme = memes[indexPath.item]
+        editMemeVC.meme = memes[indexPath.row]
         
         navigationController!.pushViewController(editMemeVC, animated: true)
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class MemeTableViewCell: UITableViewCell {
     
+    // Declare your table's outlets
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     

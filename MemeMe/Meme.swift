@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-
+// Construct our data model with a struct
 struct Meme {
     
     var topTextField: String!
     var bottomTextField: String!
     var image: UIImage!
     var memedImage: UIImage!
-t}
+}

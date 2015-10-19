@@ -90,10 +90,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
         
-        // TODO
-        
-        // CREATE A RULE FOR EACH TEXTLABEL TO KEEP THEM ON THE TOP AND BOTTOM
-        // OF THE IMAGE BY CALCULATING ITS HEIGHT
     }
     
     
@@ -204,20 +200,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems:[image], applicationActivities:nil)
         
-        presentViewController(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = {
             (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            if ok == true{
+            if ok{
                 self.save()
-            } else {
+            }else{
                 controller.dismissViewControllerAnimated(true, completion: nil )
             }
+            }
+        presentViewController(controller, animated: true, completion: nil)
         }
-        
-        // TODO
-        // 1. make a sharing via twitter
-        // 2. add sharing via facebook
-    }
+            
     
     
     // Cancel your actions
